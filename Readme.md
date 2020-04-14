@@ -29,3 +29,4 @@ then checkout the [Getting Started: Optimize!](https://www.manoptjl.org/stable/t
 [examples](https://github.com/JuliaManifolds/Manopt.jl/tree/master/src/examples)
 in this repository, where you might want to adapt the `resultsFolder` string.
 You can also read the [documentation](https://www.manoptjl.org/stable).
+ok
