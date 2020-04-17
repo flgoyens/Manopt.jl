@@ -194,7 +194,7 @@ normalization.
 """
 function retraction(M::Sphere,x::SnPoint,ξ::SnTVector,t::Float64=1.0)
   y = getValue(x) + t * getValue(ξ)
-  return SnPoint{T}(y/norm(y))
+  return SnPoint(y/norm(y))
 end
 
 
