@@ -5,6 +5,7 @@ module Manopt
   using SimpleTraits
   using Markdown
 # Manifolds
+
   include("manifolds/Manifold.jl") #base type
   # errors for false combinations of types or nonimplemented cases
   include("manifolds/defaults/manifoldFallbacks.jl")

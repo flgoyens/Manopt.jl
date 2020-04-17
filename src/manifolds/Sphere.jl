@@ -5,7 +5,7 @@
 import LinearAlgebra: norm, dot, nullspace
 import Base: exp, log, show, cat
 export Sphere, SnPoint, SnTVector,show, getValue
-export distance, dot, exp, log, manifoldDimension, norm
+export distance, dot, exp, log, manifoldDimension, norm, retraction
 export randomMPoint, opposite, parallelTransport, zeroTVector
 export validateMPoint, validateTVector
 export project
@@ -185,6 +185,19 @@ function parallelTransport(M::Sphere, x::SnPoint, y::SnPoint, ξ::SnTVector)
   νL = norm(M,x,ν)
 	return ξ - ( νL > 0 ? dot(M,x,ν,ξ)*(ν + log(M,y,x))/νL^2 : zeroTVector(M,x) )
 end
+
+@doc doc"""
+    retraction(M,x,ξ,t)
+
+retraction from the tangent space $T_x\mathbb S^n$ to a point on the Sphere by
+normalization.
+"""
+function retraction(M::Sphere,x::SnPoint,ξ::SnTVector,t::Float64=1.0)
+  y = getValue(x) + t * getValue(ξ)
+  return SnPoint{T}(y/norm(y))
+end
+
+
 @doc doc"""
     project(M,x,v)
 
